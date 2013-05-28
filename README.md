@@ -6,6 +6,7 @@ innchecker
 Имеет смысл посмотреть класс InnChecker и его статический метод checkInn
 
 Проверить работу можно чем-нибудь вроде такого:
+
         System.out.println(InnChecker.checkInn("772772262840"));
         System.out.println(InnChecker.checkInn("5036032527"));
 
