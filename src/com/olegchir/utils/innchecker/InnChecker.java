@@ -19,6 +19,10 @@ package com.olegchir.utils.innchecker;
 import java.util.ArrayList;
 
 public class InnChecker {
+    public static final Integer[] MULT_N1 = {7, 2, 4, 10, 3, 5, 9, 4, 6, 8};
+    public static final Integer[] MULT_N2 = {3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8};
+    public static final Integer[] MULT_N =  {2, 4, 10, 3, 5, 9, 4, 6, 8};
+
     public static boolean checkInn(String innStr) {
         Boolean valid;
         Integer[] inn = stringToIntArray(innStr);
@@ -27,17 +31,13 @@ public class InnChecker {
 
         switch (innSize) {
             case 12:
-                Integer[] multN1 = {7, 2, 4, 10, 3, 5, 9, 4, 6, 8};
-                Integer[] multN2 = {3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8};
-
-                Integer N1 = getChecksum(inn,multN1);
-                Integer N2 = getChecksum(inn,multN2);
+                Integer N1 = getChecksum(inn,MULT_N1);
+                Integer N2 = getChecksum(inn,MULT_N2);
 
                 valid = (inn[inn.length-1].equals(N2) && inn[inn.length-2].equals(N1));
                 break;
             case 10:
-                Integer[] multN = {2, 4, 10, 3, 5, 9, 4, 6, 8};
-                Integer N = getChecksum(inn,multN);
+                Integer N = getChecksum(inn,MULT_N);
                 valid = (inn[inn.length-1].equals(N));
                 break;
             default:
